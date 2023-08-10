@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/css_form.css" media="screen" />
+    <script src="{{url_for('static', filename='js/js_form.js')}}"></script>
+
+</head>
+<body>
+<header>
+    <div class="text-box">
+        <h1 id="title">ORDER DETAILS</h1><hr>
+        <p id="description">{{ data["first_name"].title() }} {{ data["last_name"].title() }} order details</p>
+    </div>
+</header>
+<div class="container">
+
+  {% if shirt_orders %}
+  <div class="text-box">
+    <h2>Shirt Measurements</h2>
+    <hr>
+    <table id="shirtOdrers">
+      <tr>
+        <th>Chest Measurements</th>
+        <th>Waist Measurements</th>
+        <th>Shoulder Measurements</th>
+        <th>Arm Length</th>
+        <th>Orders</th>
+        <th>Design</th>
+      </tr>
+
+      {% for row in shirt_orders %}
+      <tr>
+          <td>{{ row.chest }}</td>
+          <td>{{ row.waist }}</td>
+          <td>{{ row.shoulder }}</td>
+          <td>{{ row.arm }}</td>
+          <td>{{ row.orders }}</td>
+          <td>{{ row.design }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %}
+
+  {% if slacks_orders %}
+  <div class="text-box">
+    <h2>Slacks Measurements</h2>
+    <hr>
+    <table id="slacksOrders">
+      <tr>
+        <th>Hip Measurements</th>
+        <th>Waist Measurements</th>
+        <th>Leg Length</th>
+        <th>[Pundijuhan] Measurements</th>
+        <th>Orders</th>
+        <th>Design</th>
+      </tr>
+
+      {% for row in slacks_orders %}
+      <tr>
+          <td>{{ row.hip }}</td>
+          <td>{{ row.waist }}</td>
+          <td>{{ row.leg }}</td>
+          <td>{{ row.pundijuhan }}</td>
+          <td>{{ row.orders }}</td>
+          <td>{{ row.design }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %}
+
+  {% if skirt_orders %}
+  <div class="text-box">
+    <h2>Skirt Measurements</h2>
+    <hr>
+    <table id="skirtOrders">
+      <tr>
+        <th>Hip Measurements</th>
+        <th>Waist Measurements</th>
+        <th>Skirt Length</th>
+        <th>Orders</th>
+        <th>Design</th>
+      </tr>
+
+      {% for row in skirt_orders %}
+      <tr>
+          <td>{{ row.hip }}</td>
+          <td>{{ row.waist }}</td>
+          <td>{{ row.length }}</td>
+          <td>{{ row.orders }}</td>
+          <td>{{ row.design }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endif %}
+
+
+</div>
+
+<footer>
+    <div class="contact">
+        <a href="https://github.com/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-github"></i></span></a>
+        <a href="https://codepen.io/linh4/" target="_blank">
+            <span class="icon"><i class="fa fa-codepen"></i></span></a>
+        <a href="https://www.freecodecamp.org/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-free-code-camp"></i></span></a>
+    </div>
+    <p><a>&copy 2018 Linh Huynh</a></p>
+</footer>
+
+</body>
+</html>

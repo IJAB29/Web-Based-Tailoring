@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkbox Form</title>
+  <style>
+    /* Define the style for the form */
+    .hidden {
+      display: none; /* Hide the form by default */
+    }
+  </style>
+
+  <script language="JavaScript" type="text/javascript">
+
+    function toggleRequired(parentName) {
+      // Select all input elements with the required attribute
+      var parent = document.getElementById(parentName);
+      var inputElements =  parent.querySelectorAll('input');
+
+      // Loop through the input elements
+      inputElements.forEach(function(inputElement) {
+        // Check if the input element is hidden
+        if (inputElement.offsetParent === null) {
+          // If the input element is hidden, remove the required attribute
+          inputElement.required = false;
+          inputElement.value = "";
+        } else {
+          // If the input element is not hidden, set the required attribute
+          inputElement.required = true;
+        }
+      });
+    }
+
+    // Define the function for showing the form when the checkbox is ticked
+    function showForm(checkbox, containerName) {
+
+      // Show or hide the form based on the checkbox state
+      if (checkbox.checked) {
+        containerName.style.display = "block";
+      } else {
+        containerName.style.display = "none";
+      }
+      toggleRequired(containerName.id);
+    }
+
+    function validateForm() {
+      // Select the checkboxes and input elements
+      var checkbox1 = document.getElementById('checkbox1');
+      var checkbox2 = document.getElementById('checkbox2');
+      var checkbox3 = document.getElementById('checkbox3');
+      var inputElements = document.querySelectorAll('input[required]');
+
+      // Check if any of the checkboxes are checked
+      if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked) {
+        // If none of the checkboxes are checked, show an error message
+        alert('Please select at least one checkbox');
+        return false;
+      }
+
+      // Loop through the input elements
+      var isValid = true;
+      inputElements.forEach(function(inputElement) {
+        // Check if the input element is empty
+        if (!inputElement.value) {
+          // If the input element is empty, show an error message and set isValid to false
+          alert('Please fill out all required fields');
+          isValid = false;
+        }
+      });
+
+      // If all of the input elements are filled, allow the form to be submitted
+      return isValid;
+    }
+
+
+  </script>
+</head>
+<body>
+<h1>Checkbox Form</h1>
+<form id="form0" method="POST" onsubmit="return validateForm()" action="">
+  <p>
+    <label for="length">Length:</label><br>
+    <input type="text" id="length" name="length" required>
+  </p>
+  <label for="width">Width:</label><br>
+  <input type="text" id="width" name="width" required>
+  </p>
+  <p>
+    <label for="height">Height:</label><br>
+    <input type="text" id="height" name="height" required>
+  </p>
+
+  <p>
+    <input id="checkbox1" type="checkbox" onchange="showForm(this, form1)"> Show Form
+  </p>
+  <div id="form1" class="hidden">
+    <p>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" >
+    </p>
+    <p>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" >
+    </p>
+  </div>
+
+  <p>
+    <input id="checkbox2" type="checkbox" onchange="showForm(this, form2)"> Show Form
+  </p>
+  <div id="form2" class="hidden">
+    <p>
+      <label for="age">Age:</label><br>
+      <input type="text" id="age" name="age" >
+    </p>
+    <p>
+      <label for="gender">Gender:</label><br>
+      <input type="text" id="gender" name="gender" >
+    </p>
+  </div>
+
+  <p>
+    <input id="checkbox3" type="checkbox" onchange="showForm(this, form3)"> Show Form
+  </p>
+  <div id="form3" class="hidden">
+    <p>
+      <label for="address">Address:</label><br>
+      <input type="text" id="address" name="address" >
+    </p>
+    <p>
+      <label for="contact">Contact:</label><br>
+      <input type="tel" id="contact" name="contact" >
+    </p>
+  </div>
+
+  <p>
+    <button id="submit" type="submit">Place Order</button>
+  </p>
+
+
+</form>
+</body>
+</html>

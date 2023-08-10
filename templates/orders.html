@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/css_form.css" media="screen" />
+    <script src="{{url_for('static', filename='js/js_form.js')}}"></script>
+
+</head>
+<body>
+<header>
+    <div class="text-box">
+        <h1 id="title">ORDERS</h1><hr>
+        <p id="description">Orders taken from customers</p>
+    </div>
+</header>
+<div class="container">
+  <table id="customerInfo">
+    <tr>
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Last Name</th>
+      <th>Contact Info</th>
+      <th>Address</th>
+      <th>Orders</th>
+    </tr>
+
+    {% for row in customer_info %}
+    <tr>
+      <div>
+        <td>{{ row.first_name }}</td>
+        <td>{{ row.middle_name }}</td>
+        <td>{{ row.last_name }}</td>
+        <td>{{ row.contact_info }}</td>
+        <td>{{ row.address }}</td>
+        <td><a href="{{ url_for('order_details', data = row) }}"><button>Show Orders</button></a></td>
+      </div>
+    </tr>
+    {% endfor %}
+  </table>
+
+</div>
+
+<footer>
+    <div class="contact">
+        <a href="https://github.com/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-github"></i></span></a>
+        <a href="https://codepen.io/linh4/" target="_blank">
+            <span class="icon"><i class="fa fa-codepen"></i></span></a>
+        <a href="https://www.freecodecamp.org/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-free-code-camp"></i></span></a>
+    </div>
+    <p><a>&copy 2018 Linh Huynh</a></p>
+</footer>
+
+</body>
+</html>

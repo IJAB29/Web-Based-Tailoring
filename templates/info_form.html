@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/css_form.css" media="screen" />
+    <script src="{{url_for('static', filename='js/js_form.js')}}"></script>
+
+</head>
+<body>
+<header>
+    <div class="text-box">
+        <h1 id="title">PLACE ORDER</h1><hr>
+        <p id="description">Please provide your information</p>
+    </div>
+</header>
+<div class="container">
+    <form class="survey-form" method="POST" onsubmit="return validateForm()" action="">
+
+        <div class="labels">
+            <label id="firstName-label" for="firstName">* First Name</label>
+        </div>
+        <div class="input-tab">
+            <input class="input-field" type="text" id="firstName" name="firstName" placeholder="Enter your first name" required autofocus>
+        </div>
+
+        <div class="labels">
+            <label id="middleName-label" for="middleName">Middle Name</label></div>
+        <div class="input-tab">
+            <input class="input-field" type="text" id="middleName" name="middleName" placeholder="Enter your middle name">
+        </div>
+
+        <div class="labels">
+            <label id="lastName-label" for="lastName">* Last Name</label></div>
+        <div class="input-tab">
+            <input class="input-field" type="text" id="lastName" name="lastName" placeholder="Enter your lastName" required>
+        </div>
+
+        <div class="labels">
+            <label id="contactInfo-label" for="contactInfo">* Contact Info</label></div>
+        <div class="input-tab">
+            <input class="input-field" type="tel" id="contactInfo" name="contactInfo" placeholder="Enter your number" required>
+        </div>
+
+        <div class="labels">
+            <label id="address-label" for="address">* Address</label>
+        </div>
+        <div class="input-tab">
+            <input class="input-field" type="text" id="address" name="address" placeholder="Enter your address" required>
+        </div>
+
+        <div class="labels">
+          <label>Our Products<br>(Check all that apply):</label></div>
+        <div class="input-tab" id="products">
+          <input type="checkbox" id="dressShirtsCheckbox" name="dressShirtsCheckbox" value="dressShirtsCheckbox"  onchange="showForm(this, dressShirtsContainer)">Dress Shirts<br>
+          <input type="checkbox" id="slacksCheckbox" name="slacksCheckbox" value="slacksCheckbox"  onchange="showForm(this, slacksContainer)">Slacks<br>
+          <input type="checkbox" id="skirtsCheckbox" name="skirtsCheckbox" value="skirtsCheckbox"  onchange="showForm(this, skirtsContainer)">Skirts<br>
+        </div>
+
+        <div id="dressShirtsContainer" class="hidden text-box">
+            <h2>Dress Shirts</h2><hr>
+
+            <div class="labels">
+              <label id="shirt-chest-label" for="shirtChestVal">* Chest</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="shirtChestVal" name="shirtChestVal" placeholder="Enter your chest measurements (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="shirt-waist-label" for="shirtWaistVal">* Waist</label></div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="shirtWaistVal" name="shirtWaistVal" placeholder="Enter your waist measurements (cm)">
+            </div>
+
+             <div class="labels">
+              <label id="shirt-shoulder-label" for="shirtShoulderVal">* Shoulder Width</label></div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="shirtShoulderVal" name="shirtShoulderVal" placeholder="Enter your shoulder measurements (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="shirt-arm-label" for="shirtArmVal">* Arm Length</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="number" step="0.01" min="0" id="shirtArmVal" name="shirtArmVal" placeholder="Enter your arm length (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="shirt-orders-label" for="shirtOrdersVal">* Orders</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="number" min="0" id="shirtOrdersVal" name="shirtOrdersVal" placeholder="Enter number of orders">
+            </div>
+
+            <div class="labels">
+              <label id="shirt-design-label" for="shirtDesignVal">* Design</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="file" id="shirtDesignVal" name="shirtDesignVal" accept="image/png, image/jpeg" >
+            </div>
+
+        </div>
+
+        <div id="slacksContainer" class="hidden text-box">
+            <h2>Slacks</h2><hr>
+
+            <div class="labels">
+              <label id="slacks-hip-label" for="slacksHipVal">* Hip</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="slacksHipVal" name="slacksHipVal" placeholder="Enter your hip measurements (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="slacks-waist-label" for="slacksWaistVal">* Waist</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="slacksWaistVal" name="slacksWaistVal" placeholder="Enter your waist measurements (cm)">
+            </div>
+
+             <div class="labels">
+              <label id="slacks-leg-label" for="slacksLegVal">* Leg Length</label></div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="slacksLegVal" name="slacksLegVal" placeholder="Enter your leg length (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="slacks-pundijuhan-label" for="slacksPundijuhanVal">* "pundijuhan"</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="number" step="0.01" min="0" id="slacksPundijuhanVal" name="slacksPundijuhanVal" placeholder="Enter your [pundijuhan] measurements (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="slacks-orders-label" for="slacksOrdersVal">* Orders</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="number" min="0" id="slacksOrdersVal" name="slacksOrdersVal" placeholder="Enter number of orders">
+            </div>
+
+            <div class="labels">
+              <label id="slacks-design-label" for="slacksDesignVal">* Design</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="file" id="slacksDesignVal" name="slacksDesignVal" accept="image/png, image/jpeg" >
+            </div>
+
+        </div>
+
+        <div id="skirtsContainer" class="hidden text-box">
+            <h2>Skirts</h2><hr>
+
+            <div class="labels">
+              <label id="skirts-hip-label" for="skirtsHipVal">* Hip</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="skirtsHipVal" name="skirtsHipVal" placeholder="Enter your hip measurements (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="skirts-waist-label" for="skirtsWaistVal">* Waist</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="skirtsWaistVal" name="skirtsWaistVal" placeholder="Enter your waist measurements (cm)">
+            </div>
+
+             <div class="labels">
+              <label id="skirts-length-label" for="skirtsLengthVal">* Skirt Length</label></div>
+            <div class="input-tab">
+              <input class="input-field" type="number" step="0.01" min="0" id="skirtsLengthVal" name="skirtsLengthVal" placeholder="Enter skirt length (cm)">
+            </div>
+
+            <div class="labels">
+              <label id="skirts-orders-label" for="skirtsOrdersVal">* Orders</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="number" min="0" id="skirtsOrdersVal" name="skirtsOrdersVal" placeholder="Enter number of orders">
+            </div>
+
+            <div class="labels">
+              <label id="skirt-design-label" for="skirtDesignVal">* Design</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="file" id="skirtDesignVal" name="skirtDesignVal" accept="image/png, image/jpeg" >
+            </div>
+
+        </div>
+
+        <div class="btn">
+            <button id="submit" type="submit">Continue</button>
+        </div>
+
+    </form>
+</div>
+
+<footer>
+    <div class="contact">
+        <a href="https://github.com/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-github"></i></span></a>
+        <a href="https://codepen.io/linh4/" target="_blank">
+            <span class="icon"><i class="fa fa-codepen"></i></span></a>
+        <a href="https://www.freecodecamp.org/linh4" target="_blank">
+            <span class="icon"><i class="fa fa-free-code-camp"></i></span></a>
+    </div>
+    <p><a>&copy 2018 Linh Huynh</a></p>
+</footer>
+
+</body>
+</html>

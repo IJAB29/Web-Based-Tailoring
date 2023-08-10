@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Information</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/css_form.css" media="screen" />
+</head>
+<body>
+    <header>
+      <div class="text-box">
+        <h1 id="title">PLACE ORDER</h1><hr>
+          <p id="description">Please provide your information</p>
+      </div>
+    </header>
+        <div class="container">
+          <form class="survey-form" method="POST" action="">
+
+            <div class="labels">
+              <label id="first-name-label" for="first-name">* First Name</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="text" id="first-name" name="first-name" placeholder="Enter your first name" required autofocus>
+            </div>
+
+            <div class="labels">
+              <label id="middle-name-label" for="middle-name">Middle Name</label></div>
+            <div class="input-tab">
+              <input class="input-field" type="text" id="middle-name" name="middle-name" placeholder="Enter your middle name">
+            </div>
+
+             <div class="labels">
+              <label id="surname-label" for="surname">* Last Name</label></div>
+            <div class="input-tab">
+              <input class="input-field" type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+            </div>
+
+            <div class="labels">
+              <label id="contact-info-label" for="contact-info">* Contact Info</label></div>
+            <div class="input-tab">
+                <input class="input-field" type="tel" id="contact-info" name="contact-info" placeholder="Enter your number" required>
+            </div>
+
+            <div class="labels">
+              <label id="address-label" for="address">* Address</label>
+            </div>
+            <div class="input-tab">
+              <input class="input-field" type="text" id="address" name="address" placeholder="Enter your address" required>
+            </div>
+
+            <div class="labels">
+            <label for="dropdown">* Select a product</label>
+            </div>
+            <div class="input-tab">
+              <select id="dropdown" name="products" required>
+                <option disabled value selected>Select an option</option>
+                <option value="dress-shirts">Dress Shirts</option>
+                <option value="slacks">Slacks</option>
+                <option value="skirts">Skirts</option>
+              </select>
+            </div>
+
+
+            <div class="btn">
+              <button id="submit" type="submit">Continue</button>
+            </div>
+
+            </form>
+        </div>
+
+    <footer>
+      <div class="contact">
+        <a href="https://github.com/linh4" target="_blank">
+          <span class="icon"><i class="fa fa-github"></i></span></a>
+        <a href="https://codepen.io/linh4/" target="_blank">
+          <span class="icon"><i class="fa fa-codepen"></i></span></a>
+        <a href="https://www.freecodecamp.org/linh4" target="_blank">
+          <span class="icon"><i class="fa fa-free-code-camp"></i></span></a>
+      </div>
+          <p><a>&copy 2018 Linh Huynh</a></p>
+    </footer>
+
+</body>
+</html>
